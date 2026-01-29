@@ -5,7 +5,7 @@ name: "Search Queries All"
 version: "1.0.0"
 status: "active"
 description:
-  purpose: "All search queries and result sets with PII removed. This is Yaml edited. And now back wrong!!!"
+  purpose: "All search queries and result sets with PII removed. This is Yaml edited. And now back wrong!!!!"
   usage: "Max. 10x queries per day"
   limitations: "Not suitable for real-time use cases"
 team:
