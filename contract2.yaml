@@ -1,0 +1,63 @@
+apiVersion: "v3.1.0"
+kind: "DataContract"
+id: "search_queries_all_v2"
+name: "Search Queries A 2"
+version: "2.0.0"
+status: "active"
+description:
+  purpose: "All search queries and result sets with PII removed. With LF again."
+  usage: "Max. 10x queries per day"
+  limitations: "Not suitable for real-time use cases"
+team:
+  name: "search"
+  members:
+  - username: "carter.alanis@demo4Fk70UTsRIRAbEBjekukGs.datamesh-manager.com"
+    name: "Carter Alanis"
+    role: "contact"
+price:
+  priceAmount: 1000
+  priceCurrency: "USD"
+  priceUnit: "month"
+customProperties:
+- property: "noticePeriod"
+  value: "P3M"
+schema:
+- name: "search_queries"
+  physicalType: "table"
+  businessName: "Search Queries"
+  description: "All search queries and result sets with PII removed."
+  quality:
+  - type: "custom"
+    engine: "soda"
+    implementation: |
+      checks for search_queries:
+        - freshness(search_timestamp) < 1d
+        - row_count > 100000
+        - missing_count(search_query) = 0
+  properties:
+  - name: "search_query"
+    logicalType: "string"
+    physicalType: "text"
+    description: "The search query as entered by the user"
+    required: true
+  - name: "result_count"
+    logicalType: "integer"
+    description: "The number of results for this query"
+    required: true
+  - name: "clicked_url"
+    logicalType: "string"
+    description: "The URL of the result entry that was clicked by the user, if any"
+  - name: "search_timestamp"
+    logicalType: "timestamp"
+    description: "The timestamp of the search (business timestamp)"
+    required: true
+    authoritativeDefinitions:
+    - type: "definition"
+      url: "http://localhost:8888/demo442466427314/definitions/global/actual_timestamp"
+  - name: "processing_timestamp"
+    logicalType: "timestamp"
+    description: "The timestamp when this search query was inserted (processing timestamp)"
+    required: true
+    authoritativeDefinitions:
+    - type: "definition"
+      url: "http://localhost:8888/demo442466427314/definitions/global/processed_timestamp"
