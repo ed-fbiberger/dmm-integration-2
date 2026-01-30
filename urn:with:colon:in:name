@@ -5,7 +5,7 @@ name: "orders"
 version: "0.0.1"
 status: "draft"
 team:
-  name: "0bab77cf-2711-4701-ac87-35446b2bd8f4"
+  name: "sales-team"
 description:
   purpose: "This data can be used for analytical purposes"
 servers:
