@@ -1,0 +1,55 @@
+apiVersion: "v3.1.0"
+kind: "DataContract"
+id: "customer-cohorts"
+name: "Customer Cohorts"
+version: "1.0.0"
+status: "active"
+description:
+  purpose: "A table with customer cohorts and their properties"
+  usage: "Max. 10x queries per day"
+  limitations: "Not suitable for real-time use cases"
+team:
+  name: "marketing"
+  members:
+  - username: "justice.sukie@demo5jGf8I0v7bMRIU33qRdaY2.datamesh-manager.com"
+    name: "Justice Sukie"
+    role: "contact"
+price:
+  priceAmount: 1000
+  priceCurrency: "USD"
+  priceUnit: "month"
+customProperties:
+- property: "noticePeriod"
+  value: "P3M"
+schema:
+- name: "customer_cohorts"
+  physicalType: "table"
+  businessName: "Customer Cohorts"
+  description: "Table containing customer cohorts information."
+  properties:
+  - name: "customer_id"
+    logicalType: "string"
+    required: true
+    authoritativeDefinitions:
+    - type: "definition"
+      url: "http://localhost:8888/demo930914837096/definitions/sales/customer_id"
+  - name: "chid"
+    logicalType: "string"
+    description: "Identifier for the cohort the customer belongs to."
+    required: true
+  - name: "cno"
+    logicalType: "string"
+    description: "Number of the customer cohort"
+    required: true
+  - name: "cohort_name"
+    logicalType: "string"
+    description: "Name of the cohort."
+  - name: "start_date"
+    logicalType: "date"
+    description: "Start date of the cohort."
+  - name: "end_date"
+    logicalType: "date"
+    description: "End date of the cohort."
+  - name: "description"
+    logicalType: "string"
+    description: "Additional description or notes about the cohort."
