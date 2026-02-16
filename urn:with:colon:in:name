@@ -2,7 +2,7 @@ apiVersion: "v3.1.0"
 kind: "DataContract"
 id: "65a3cda5-1365-44b5-8cf7-e23303337cd2"
 name: "orders-namerechanged-pr-conflict"
-version: "0.0.1"
+version: "0.0.2"
 status: "draft"
 team:
   name: "sales-team"
