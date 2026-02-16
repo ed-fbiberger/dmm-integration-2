@@ -65,4 +65,4 @@ schema:
         logicalType: "timestamp"
         description: "Timestamp indicating when the customer record was created"
         required: true
-tenant: "tenant3"
+tenant: "tenant5"
