@@ -157,4 +157,4 @@ schema:
         authoritativeDefinitions:
           - type: "definition"
             url: "http://localhost:8888/demo930914837096/definitions/fulfillment/sku"
-tenant: "AddCompanyA"
+tenant: "AddCompanyB"
