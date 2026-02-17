@@ -1,0 +1,13 @@
+apiVersion: "v3.0.1"
+kind: "DataContract"
+id: "fsfdafdsfdsaf"
+name: "fsfdafdsfdsaf5"
+version: "0.0.2"
+status: "in development"
+customProperties:
+- property: "owner"
+  value: "platform-team"
+description: {}
+support:
+- channel: "fdasfdsd"
+  url: "http://example.com"
