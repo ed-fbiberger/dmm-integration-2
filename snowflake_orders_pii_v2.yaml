@@ -7,7 +7,7 @@ status: "active"
 tags:
 - "popular"
 description:
-  purpose: "All order-created events, with PII."
+  purpose: "All order-created events, with PII.2"
   usage: "Max. 10x queries per day"
   limitations: "Not suitable for real-time use cases"
   authoritativeDefinitions:
