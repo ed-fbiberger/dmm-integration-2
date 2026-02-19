@@ -7,7 +7,7 @@ status: "active"
 description:
   purpose: "A table with customer cohorts and their properties"
   usage: "Max. 10x queries per day"
-  limitations: "Not suitable for real-time use cases"
+  limitations: "Not suitable for real-time use casedddds"
 team:
   name: "marketing"
   members:
