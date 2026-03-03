@@ -1,7 +1,7 @@
 apiVersion: "v3.1.0"
 kind: "DataContract"
 id: "snowflake_customers_latest_pii_v1"
-name: "Customers Latest"
+name: "Customers Latest2"
 version: "1.0.0"
 status: "active"
 description:
@@ -11,56 +11,56 @@ description:
 team:
   name: "sales-team"
   members:
-  - username: "scarlett.layton@demo4OH8794gsA1S7tFCbEFHxy.datamesh-manager.com"
-    name: "Scarlett Layton"
-    role: "contact"
+    - username: "scarlett.layton@demo4OH8794gsA1S7tFCbEFHxy.datamesh-manager.com"
+      name: "Scarlett Layton"
+      role: "contact"
 price:
   priceAmount: 1000
   priceCurrency: "USD"
   priceUnit: "month"
 customProperties:
-- property: "noticePeriod"
-  value: "P3M"
+  - property: "noticePeriod"
+    value: "P3M"
 servers:
-- server: "snowflake-customers"
-  type: "snowflake"
-  account: "acme-customers"
-  database: "CUSTOMERS_DB"
-  schema: "PUBLIC"
+  - server: "snowflake-customers"
+    type: "snowflake"
+    account: "acme-customers"
+    database: "CUSTOMERS_DB"
+    schema: "PUBLIC"
 schema:
-- name: "customers"
-  physicalType: "table"
-  businessName: "Customers"
-  description: "Retrieves and transforms customer data"
-  properties:
-  - name: "customer_id"
-    logicalType: "string"
-    required: true
-    unique: true
-    authoritativeDefinitions:
-    - type: "definition"
-      url: "http://localhost:8888/demo250160250327/definitions/sales/customer_id"
-  - name: "name"
-    logicalType: "string"
-    description: "Full name of the customer"
-    tags:
-    - "pii:true"
-  - name: "email"
-    logicalType: "string"
-    authoritativeDefinitions:
-    - type: "definition"
-      url: "http://localhost:8888/demo250160250327/definitions/sales/customer_email"
-  - name: "phone"
-    logicalType: "string"
-    description: "Phone number of the customer"
-    tags:
-    - "pii:true"
-  - name: "address"
-    logicalType: "string"
-    description: "Address of the customer"
-    tags:
-    - "pii:true"
-  - name: "created_at"
-    logicalType: "timestamp"
-    description: "Timestamp indicating when the customer record was created"
-    required: true
+  - name: "customers"
+    physicalType: "table"
+    businessName: "Customers"
+    description: "Retrieves and transforms customer data"
+    properties:
+      - name: "customer_id"
+        logicalType: "string"
+        required: true
+        unique: true
+        authoritativeDefinitions:
+          - type: "definition"
+            url: "http://localhost:8888/demo250160250327/definitions/sales/customer_id"
+      - name: "name"
+        logicalType: "string"
+        description: "Full name of the customer"
+        tags:
+          - "pii:true"
+      - name: "email"
+        logicalType: "string"
+        authoritativeDefinitions:
+          - type: "definition"
+            url: "http://localhost:8888/demo250160250327/definitions/sales/customer_email"
+      - name: "phone"
+        logicalType: "string"
+        description: "Phone number of the customer"
+        tags:
+          - "pii:true"
+      - name: "address"
+        logicalType: "string"
+        description: "Address of the customer"
+        tags:
+          - "pii:true"
+      - name: "created_at"
+        logicalType: "timestamp"
+        description: "Timestamp indicating when the customer record was created"
+        required: true
