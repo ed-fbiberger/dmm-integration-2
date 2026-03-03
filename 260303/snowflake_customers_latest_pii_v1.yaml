@@ -1,7 +1,7 @@
 apiVersion: "v3.1.0"
 kind: "DataContract"
 id: "snowflake_customers_latest_pii_v1"
-name: "Customers Latest2"
+name: "Customers Latest"
 version: "1.0.0"
 status: "active"
 description:
