@@ -1,7 +1,7 @@
 apiVersion: "v3.1.0"
 kind: "DataContract"
 id: "s3_customers_history_pii_v1"
-name: "Customers History8"
+name: "Customers History12"
 version: "1.0.0"
 status: "active"
 tags:
