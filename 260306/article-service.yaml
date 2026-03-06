@@ -1,0 +1,48 @@
+apiVersion: "v1.0.0"
+kind: "DataProduct"
+id: "article-service"
+name: "Article Service2"
+status: "active"
+domain: "web-shop"
+description:
+  purpose: "The central self-contained system for articles."
+team:
+  name: "products"
+tags:
+- "demo"
+outputPorts:
+- name: "kafka-articles"
+  version: "1"
+  description: "Get articles via OpenAPI"
+  type: "api"
+  authoritativeDefinitions:
+  - type: "Swagger"
+    url: "https://petstore.swagger.io/"
+  customProperties:
+  - property: "displayName"
+    value: "Article Service API v1"
+  - property: "status"
+    value: "active"
+  - property: "autoApprove"
+    value: true
+  - property: "containsPii"
+    value: false
+  - property: "server"
+    value:
+      location: "https://example.com/openapi.yaml"
+  tags:
+  - "demo"
+authoritativeDefinitions:
+- type: "Article System"
+  url: "http://internal.acme.example.com/product/article-service"
+customProperties:
+- property: "type"
+  value: "application"
+- property: "riskAssessment"
+  value: "medium risk"
+- property: "dataResidency"
+  value: "EU"
+- property: "platformRole"
+  value: "dp_article_service_role"
+- property: "keywords"
+  value: "articles, products, catalog, API, Swagger, OpenAPI, product master data, SKU, item, merchandise"
