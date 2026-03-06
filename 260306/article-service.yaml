@@ -46,3 +46,4 @@ customProperties:
   value: "dp_article_service_role"
 - property: "keywords"
   value: "articles, products, catalog, API, Swagger, OpenAPI, product master data, SKU, item, merchandise"
+tenant: "sedasds"
