@@ -1,7 +1,7 @@
 apiVersion: "v1.0.0"
 kind: "DataProduct"
 id: "article-service"
-name: "Article Service5"
+name: "Article Service6"
 status: "active"
 domain: "web-shop"
 description:
