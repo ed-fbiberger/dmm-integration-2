@@ -1,7 +1,7 @@
 apiVersion: "v1.0.0"
 kind: "DataProduct"
 id: "article-service"
-name: "Article Service2"
+name: "Article Service3"
 status: "active"
 domain: "web-shop"
 description:
@@ -44,6 +44,8 @@ customProperties:
   value: "EU"
 - property: "platformRole"
   value: "dp_article_service_role"
+- property: "tenant"
+  value: "sedasds"
 - property: "keywords"
   value: "articles, products, catalog, API, Swagger, OpenAPI, product master data, SKU, item, merchandise"
 tenant: "sedasds"
