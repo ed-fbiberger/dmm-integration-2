@@ -68,3 +68,4 @@ schema:
             url: "http://localhost:8888/demo709560224424/definitions/global/processed_timestamp"
 tags:
   - "autopush"
+  - "hallo"
