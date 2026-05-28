@@ -5,7 +5,7 @@ name: "Articles"
 version: "1.0.0"
 status: "active"
 description:
-  purpose: "Current state of all articles - Auto Pulled"
+  purpose: "Current state of all articles - Auto Pulled !!!"
   usage: "Max. 10x queries per day"
   limitations: "Not suitable for real-time use cases"
 team:
