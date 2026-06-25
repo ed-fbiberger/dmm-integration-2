@@ -1,0 +1,243 @@
+apiVersion: "v1.0.0"
+kind: "DataProduct"
+id: "orders"
+name: "Orders"
+status: "active"
+domain: "web-shop"
+description:
+  purpose: |
+    This is an actively managed, high-quality data product that consolidates every order-created event from the company’s sales systems, providing a complete and accurate view of customer purchases.
+    It includes personally identifiable details such as *email*, *phone number*, and *invoice address*, enabling deep insights into customer behavior, repeat purchasing patterns, and fulfillment efficiency.
+
+    The data helps business teams answer questions like which customers are most valuable, which products drive the highest order totals, and how often customers place follow-up orders after cancellations.
+    It supports strategic initiatives such as revenue forecasting, churn reduction, and customer satisfaction analysis.
+    The dataset consists of two linked tables:
+    - **Orders**
+    - **Line Items**
+
+    where each order can contain multiple line items representing purchased products or services.
+
+    **Example query:**
+    ```sql
+    SELECT
+      o.ORDER_ID,
+      o.CUSTOMER_ID,
+      o.ORDER_DATE,
+      o.ORDER_TOTAL,
+      COUNT(li.LINE_ITEM_ID) AS line_item_count
+    FROM ANALYTICS.ORDERS_V2.ORDERS o
+    LEFT JOIN ANALYTICS.ORDERS_V2.LINE_ITEMS li
+      ON o.ORDER_ID = li.ORDER_ID
+    WHERE o.ORDER_DATE >= DATEADD(day, -30, CURRENT_DATE())
+    GROUP BY 1, 2, 3, 4
+    ORDER BY o.ORDER_DATE DESC;
+    ```
+
+    This query summarizes customer activity over the last 30 days, showing each order’s total value and number of purchased items.
+    Business teams can use this to track sales trends, identify high-value customers, or detect changes in product demand, all while maintaining appropriate data privacy controls for PII fields.
+team:
+  name: "sales-team"
+tags:
+- "demo"
+- "featured"
+- "certification/gold"
+- "platform/snowflake"
+outputPorts:
+- name: "snowflake_orders_pii_v1"
+  version: "1"
+  description: "All order-created events, with PII."
+  type: "snowflake"
+  authoritativeDefinitions:
+  - type: "Snowflake WebUI"
+    url: "https://app.snowflake.com/xxx/yyy/#/data/databases/ORDER_DB/schemas/ORDERS_PII_V1"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders v1"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_pii_v1_role"
+  - property: "status"
+    value: "retired"
+  - property: "autoApprove"
+    value: false
+  - property: "containsPii"
+    value: true
+  - property: "server"
+    value:
+      schema: "ORDERS_PII_V1"
+      account: "lmtrwxs-xn14859"
+      database: "ORDER_DB"
+  - property: "environment"
+    value: "prod"
+- name: "snowflake_orders_pii_v1_dev"
+  version: "1"
+  description: "All order-created events, with PII."
+  type: "snowflake"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders v1 (Dev)"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_pii_v1_role"
+  - property: "status"
+    value: "retired"
+  - property: "autoApprove"
+    value: true
+  - property: "containsPii"
+    value: true
+  - property: "server"
+    value:
+      schema: "ORDERS_PII_V1"
+      account: "lmtrwxs-xn14859-dev"
+      database: "ORDER_DB"
+  - property: "environment"
+    value: "dev"
+- name: "snowflake_orders_pii_v2"
+  version: "2"
+  description: "All order-created events, with PII."
+  type: "snowflake"
+  contractId: "snowflake_orders_pii_v2"
+  authoritativeDefinitions:
+  - type: "Snowflake WebUI"
+    url: "https://app.snowflake.com/lmtrwxs/xn14859/#/data/databases/ORDER_DB/schemas/ORDERS_PII_V2/tables"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders v2"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_pii_v2_role"
+  - property: "status"
+    value: "active"
+  - property: "autoApprove"
+    value: false
+  - property: "containsPii"
+    value: true
+  - property: "contractServer"
+    value: "snowflake"
+  - property: "environment"
+    value: "prod"
+  tags:
+  - "location:EU"
+  - "datacontracttests:enabled"
+- name: "snowflake_orders_npii_v2"
+  version: "2"
+  description: "All order-created events, PII removed."
+  type: "snowflake"
+  contractId: "snowflake_orders_npii_v2"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders (No PII) v2"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_npii_v2_role"
+  - property: "status"
+    value: "active"
+  - property: "autoApprove"
+    value: false
+  - property: "containsPii"
+    value: false
+  - property: "contractServer"
+    value: "snowflake"
+  - property: "environment"
+    value: "prod"
+  tags:
+  - "datacontracttests:enabled"
+- name: "snowflake_orders_npii_v3"
+  version: "3"
+  description: "All order-created events, PII removed."
+  type: "snowflake"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders (No PII) v3"
+  - property: "status"
+    value: "active"
+  - property: "autoApprove"
+    value: true
+  - property: "containsPii"
+    value: false
+  - property: "environment"
+    value: "prod"
+- name: "snowflake_orders_pii_v2_dev"
+  version: "2"
+  description: "All order-created events, with PII."
+  type: "snowflake"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders v2 (Dev)"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_pii_v2_role"
+  - property: "status"
+    value: "active"
+  - property: "autoApprove"
+    value: true
+  - property: "containsPii"
+    value: true
+  - property: "server"
+    value:
+      schema: "ORDERS_PII_V2"
+      account: "lmtrwxs-xn14859-dev"
+      database: "ORDER_DB"
+  - property: "environment"
+    value: "dev"
+- name: "snowflake_orders_npii_v1"
+  version: "1"
+  description: "All order-created events, PII removed."
+  type: "snowflake"
+  customProperties:
+  - property: "displayName"
+    value: "Snowflake Orders (No PII) v1"
+  - property: "platformRole"
+    value: "op_orders_snowflake_orders_npii_v1_role"
+  - property: "status"
+    value: "retired"
+  - property: "autoApprove"
+    value: true
+  - property: "containsPii"
+    value: false
+  - property: "server"
+    value:
+      schema: "ORDERS_NPII_V1"
+      account: "lmtrwxs-xn14859"
+      database: "ORDER_DB"
+  - property: "environment"
+    value: "prod"
+support:
+- channel: "#data-product-orders"
+  url: "https://acme.slack.com/channels/data-product-orders"
+  description: "Join the channel to ask questions about order data, report issues, or request new output ports."
+  tool: "slack"
+  scope: "interactive"
+authoritativeDefinitions:
+- type: "semantics"
+  url: "http://localhost:8080/demo170465538715/semantics/main/order"
+- type: "Related"
+  url: "http://localhost:8080/demo170465538715/dataproducts/customers"
+- type: "Repository"
+  url: "https://github.acme.example.com/sales/data-product-orders"
+- type: "Documentation"
+  url: "https://confluence.acme.example.com/display/SALES/Orders+Data+Product"
+- type: "Changelog"
+  url: "https://confluence.acme.example.com/display/SALES/Orders+Data+Product+Changelog"
+customProperties:
+- property: "platformRole"
+  value: "dp_orders_role"
+- property: "icon"
+  value: "snowflake"
+- property: "type"
+  value: "source-aligned"
+- property: "riskAssessment"
+  value: "high risk"
+- property: "dataResidency"
+  value: "EU"
+- property: "internalAssetId"
+  value: "ASSET-ORDERS-001"
+- property: "keywords"
+  value: "orders, purchases, sales, transactions, line items, revenue, PII, customer orders, order history, ecommerce, checkout"
+- property: "aiInstructions"
+  value: "Always join ORDERS with LINE_ITEMS using ORDER_ID when answering questions about products or line-level details. Use the non-PII output port (snowflake_orders_npii_v2) unless the user explicitly needs email, phone, or address fields. ORDER_TOTAL is in EUR. When filtering by date, use ORDER_DATE (not CREATED_AT). For revenue analysis, sum ORDER_TOTAL from the ORDERS table — do not sum line item prices, as they may not include discounts."
+- property: "aiExamples"
+  value: |
+    Q: What are the top 10 customers by total revenue?
+    SELECT CUSTOMER_ID, COUNT(*) AS order_count, SUM(ORDER_TOTAL) AS total_revenue FROM ANALYTICS.ORDERS_V2.ORDERS GROUP BY CUSTOMER_ID ORDER BY total_revenue DESC LIMIT 10;
+
+    Q: How many orders were placed in the last 30 days?
+    SELECT COUNT(*) AS order_count FROM ANALYTICS.ORDERS_V2.ORDERS WHERE ORDER_DATE >= DATEADD(day, -30, CURRENT_DATE());
+
+    Q: What is the average number of line items per order?
+    SELECT AVG(line_item_count) FROM (SELECT ORDER_ID, COUNT(*) AS line_item_count FROM ANALYTICS.ORDERS_V2.LINE_ITEMS GROUP BY ORDER_ID);
