@@ -34,7 +34,7 @@ description:
     ```
 
     This query summarizes customer activity over the last 30 days, showing each order’s total value and number of purchased items.
-    Business teams can use this to track sales trends, identify high-value customers, or detect changes in product demand, all while maintaining appropriate data privacy controls for PII fields.
+    Business teams can use this to track sales trends, identify high-value customers, or detect changes in product demand, all while maintaining appropriate data privacy controls for PII fields. fdsaf fdsa fdsa 
 team:
   name: "sales-team"
 tags:
