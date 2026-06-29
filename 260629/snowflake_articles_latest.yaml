@@ -9,7 +9,7 @@ tags:
 description:
   purpose: "Current state of all articles"
   usage: "Max. 10x queries per day"
-  limitations: "Not suitable for real-time use cases"
+  limitations: "Not suitable for real-time use cases. This is updated."
 team:
   name: "products"
   members:
