@@ -1,0 +1,28 @@
+apiVersion: "v1.0.0"
+kind: "DataProduct"
+id: "article-profitability-analysis"
+name: "Article Profitability Analysis"
+status: "active"
+domain: "finance--legal"
+description:
+  purpose: "A PowerBI report that combines revenue, cost, and margin to deliver actionable insights into the profitability of each article. \nIt is designed to help decision-makers identify high-performing products, uncover underperforming items, and allocate resources more effectively.\n"
+team:
+  name: "controlling-team"
+tags:
+- "demo"
+authoritativeDefinitions:
+- type: "PowerBI"
+  url: "https://powerbi.microsoft.com/"
+customProperties:
+- property: "platformRole"
+  value: "dp_article_profitability_analysis_role"
+- property: "icon"
+  value: "powerbi"
+- property: "type"
+  value: "consumer-aligned"
+- property: "riskAssessment"
+  value: "low risk"
+- property: "dataResidency"
+  value: "EU"
+- property: "keywords"
+  value: "profitability, margin analysis, revenue, cost, PowerBI, reporting, product performance, ROI, financial KPI, gross margin"
