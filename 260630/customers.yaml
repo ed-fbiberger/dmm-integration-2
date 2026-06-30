@@ -6,6 +6,7 @@ status: "active"
 domain: "web-shop"
 description:
   purpose: |
+    Incoming update via Git.
     The **Customers** data product includes both *registered users* and *guest buyers* from the online shop.
 
     It contains all customer records collected since the launch of the platform, offering:
