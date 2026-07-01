@@ -1,0 +1,61 @@
+apiVersion: "v3.1.0"
+kind: "DataContract"
+id: "kafka_articles_v1"
+name: "Article Events"
+version: "1.0.0"
+status: "active"
+tags:
+- "datacontracttests:enabled"
+description:
+  purpose: "Article change events emitted by the Article Service. Articles History ingests this feed and historizes it into point-in-time snapshots."
+  usage: "Streaming ingestion only"
+  limitations: "At-least-once delivery — consumers must deduplicate on SKU and TIMESTAMP"
+team:
+  name: "products"
+  members:
+  - username: "gordie.stuart@demoTHTvoRKjjhGo8CmVLjE3f.datamesh-manager.com"
+    name: "Gordie Stuart"
+    role: "contact"
+customProperties:
+- property: "noticePeriod"
+  value: "P3M"
+servers:
+- server: "kafka"
+  type: "kafka"
+  host: "pkc-3xn14.eu-central-1.aws.confluent.cloud:9092"
+  topic: "acme.articles.v1"
+  format: "json"
+schema:
+- name: "ARTICLE_EVENT"
+  physicalType: "topic"
+  businessName: "Article Event"
+  description: "A single article change event as emitted by the Article Service."
+  properties:
+  - name: "SKU"
+    logicalType: "string"
+    required: true
+    authoritativeDefinitions:
+    - type: "semantics"
+      url: "http://localhost:8080/demo850183990489/semantics/main/sku"
+  - name: "NAME"
+    logicalType: "string"
+    physicalType: "text"
+    description: "The name of the article"
+    businessName: "Name"
+  - name: "COLOR"
+    logicalType: "string"
+    physicalType: "text"
+    description: "The color of the article"
+    businessName: "Color"
+  - name: "BRAND_NAME"
+    logicalType: "string"
+    physicalType: "text"
+    description: "The brand of the article"
+    businessName: "Brand Name"
+  - name: "TIMESTAMP"
+    logicalType: "timestamp"
+    required: true
+    description: "Event time when the article change occurred"
+    authoritativeDefinitions:
+    - type: "semantics"
+      url: "http://localhost:8080/demo850183990489/semantics/main/actual_timestamp"
