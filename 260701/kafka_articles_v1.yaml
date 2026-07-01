@@ -9,7 +9,7 @@ tags:
 description:
   purpose: "Article change events emitted by the Article Service. Articles History ingests this feed and historizes it into point-in-time snapshots."
   usage: "Streaming ingestion only"
-  limitations: "At-least-once delivery — consumers must deduplicate on SKU and TIMESTAMP"
+  limitations: "At-least-once delivery — consumers must deduplicate on SKU and TIMESTAMP fdsafdsa fdsa fdsaf dsafdsafdas fdsafd"
 team:
   name: "products"
   members:
