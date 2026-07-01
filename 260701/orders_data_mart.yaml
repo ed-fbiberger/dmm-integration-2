@@ -5,7 +5,7 @@ name: "Orders Data Mart"
 version: "1.0.0"
 status: "proposed"
 description:
-  purpose: "Orders data mart containing facts and dimensions for order analysis."
+  purpose: "Orders data mart containing facts and dimensions for order analysis. ssss"
 team:
   name: "sales-team"
 schema:
